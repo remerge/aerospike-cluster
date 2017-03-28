@@ -23,6 +23,7 @@ when 'auto'
   when 'community'
     server_package_url = value_for_platform(
       'ubuntu' => {
+        '~> 16.04' => "http://aerospike.com/download/server/#{node['aerospike']['version']['server']}/artifact/ubuntu16",
         '~> 14.04' => "http://aerospike.com/download/server/#{node['aerospike']['version']['server']}/artifact/ubuntu14",
         'default' => "http://aerospike.com/download/server/#{node['aerospike']['version']['server']}/artifact/ubuntu12"
       },
@@ -33,6 +34,7 @@ when 'auto'
   when 'enterprise'
     server_package_url = value_for_platform(
       'ubuntu' => {
+        '~> 16.04' => "http://www.aerospike.com/enterprise/download/server/#{node['aerospike']['version']['server']}/artifact/ubuntu16",
         '~> 14.04' => "http://www.aerospike.com/enterprise/download/server/#{node['aerospike']['version']['server']}/artifact/ubuntu14",
         'default' => "http://www.aerospike.com/enterprise/download/server/#{node['aerospike']['version']['server']}/artifact/ubuntu12"
       },
@@ -50,6 +52,7 @@ end
 
 tools_package_url = value_for_platform(
   'ubuntu' => {
+    '~> 16.04' => "http://aerospike.com/download/tools/#{node['aerospike']['version']['tools']}/artifact/ubuntu16",
     '~> 14.04' => "http://aerospike.com/download/tools/#{node['aerospike']['version']['tools']}/artifact/ubuntu14",
     'default' => "http://aerospike.com/download/tools/#{node['aerospike']['version']['tools']}/artifact/ubuntu12"
   },

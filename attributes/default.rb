@@ -1,10 +1,10 @@
-default['aerospike']['version']['server'] = '3.10.1.1'
-default['aerospike']['version']['tools'] = '3.10.2'
-default['aerospike']['version']['amc'] = '3.6.13'
+default['aerospike']['version']['server'] = '3.12.0'
+default['aerospike']['version']['tools'] = '3.12.0'
+default['aerospike']['version']['amc'] = '4.0.11'
 
 default['aerospike']['tarball_purge'] = false
 
-default['aerospike']['install_method'] = 'tarball' # options: tarball
+default['aerospike']['install_method'] = 'package' # options: tarball, package
 default['aerospike']['install_edition'] = 'community' # options: community, enterprise
 
 default['aerospike']['enterprise']['username'] = nil
@@ -29,7 +29,11 @@ default['aerospike']['tarball_url'] = 'auto'
 default['aerospike']['server_package_url'] = 'auto'
 default['aerospike']['tools_package_url'] = 'auto'
 default['aerospike']['package_suffix'] = value_for_platform(
-  'ubuntu' => { '~> 14.04' => 'ubuntu14.04', 'default' => 'ubuntu12.04' },
+  'ubuntu' => {
+    '~> 16.04' => 'ubuntu16.04',
+    '~> 14.04' => 'ubuntu14.04',
+    'default' => 'ubuntu12.04'
+  },
   'debian' => { 'default' => "debian#{node['platform_version']}" },
   %w(amazon centos redhat) => { '~> 7.0' => 'el7', 'default' => 'el6' }
 )
@@ -42,4 +46,4 @@ default['aerospike']['mode']  = '0755'
 default['aerospike']['enable_test_namespace'] = true
 
 default['aerospike']['chef']['search'] = "role:aerospike-server AND chef_environment:#{node.chef_environment}"
-default['aerospike']['checksum_verify'] = true
+default['aerospike']['checksum_verify'] = false

@@ -59,10 +59,6 @@ node.default['aerospike']['config']['network']['heartbeat']['address'] = case no
 node.default['aerospike']['config']['mod-lua']['user-path'] = ::File.join(node['aerospike']['work_dir'], 'usr', 'udf', 'lua')
 node.default['aerospike']['config']['mod-lua']['system-path'] = ::File.join(node['aerospike']['work_dir'], 'sys', 'udf', 'lua')
 
-# logging ()
-config_log_file = "file #{node['aerospike']['log_file']}"
-node.default['aerospike']['config']['logging'][config_log_file]['context'] = 'any info'
-
 # enable test namespace by default
 if node['aerospike']['enable_test_namespace']
   # hdd device storage engine

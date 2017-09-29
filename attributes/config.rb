@@ -13,7 +13,6 @@ default['aerospike']['config']['service']['group'] = 'root'
 default['aerospike']['config']['service']['paxos-single-replica-limit'] = 1
 default['aerospike']['config']['service']['pidfile'] = '/var/run/aerospike/asd.pid'
 default['aerospike']['config']['service']['service-threads'] = node[:cpu][:total]
-default['aerospike']['config']['service']['fabric-workers'] = [128, node[:cpu][:total]].min
 default['aerospike']['config']['service']['transaction-queues'] = node[:cpu][:total]
 default['aerospike']['config']['service']['transaction-threads-per-queue'] = 8
 default['aerospike']['config']['service']['proto-fd-max'] = 50_000

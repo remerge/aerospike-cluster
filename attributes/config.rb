@@ -18,9 +18,6 @@ default['aerospike']['config']['service']['transaction-queues'] = node[:cpu][:to
 default['aerospike']['config']['service']['transaction-threads-per-queue'] = 8
 default['aerospike']['config']['service']['proto-fd-max'] = 50_000
 
-# logging {}
-default['aerospike']['config']['logging']['console']['context'] = 'any info'
-
 # network {}
 default['aerospike']['config']['network']['service']['address'] = 'any'
 default['aerospike']['config']['network']['service']['port'] = 3000

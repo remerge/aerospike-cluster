@@ -48,12 +48,6 @@ node.default['aerospike']['config']['network']['heartbeat']['port'] = case node[
                                                                       when 'mesh'
                                                                         3002
                                                                       end
-node.default['aerospike']['config']['network']['heartbeat']['address'] = case node['aerospike']['config']['network']['heartbeat']['mode']
-                                                                         when 'multicast'
-                                                                           '224.2.2.4'
-                                                                         when 'mesh'
-                                                                           node['ipaddress']
-                                                                         end
 
 # mod-lua {}
 node.default['aerospike']['config']['mod-lua']['user-path'] = ::File.join(node['aerospike']['work_dir'], 'usr', 'udf', 'lua')

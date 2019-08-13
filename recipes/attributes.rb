@@ -54,8 +54,12 @@ node.default['aerospike']['config']['mod-lua']['user-path'] = ::File.join(node['
 node.default['aerospike']['config']['mod-lua']['system-path'] = ::File.join(node['aerospike']['work_dir'], 'sys', 'udf', 'lua')
 
 # logging ()
-config_log_file = "file #{node['aerospike']['log_file']}"
-node.default['aerospike']['config']['logging'][config_log_file]['context'] = 'any info'
+if node['aerospike']['log_to_stdout']
+  node.default['aerospike']['config']['logging']['console']['context'] = 'any info'
+else
+  config_log_file = "file #{node['aerospike']['log_file']}"
+  node.default['aerospike']['config']['logging'][config_log_file]['context'] = 'any info'
+end
 
 # enable test namespace by default
 if node['aerospike']['enable_test_namespace']
